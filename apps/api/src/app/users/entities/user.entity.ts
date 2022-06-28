@@ -1,5 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Transform } from 'class-transformer';
 import { Document, ObjectId } from 'mongoose';
 
 export type UserDocument = User & Document;
@@ -8,6 +9,7 @@ export type UserDocument = User & Document;
 @ObjectType()
 export class User {
   @Field(() => String)
+  @Transform(({ value }) => value.toString())
   _id: ObjectId;
 
   @Prop({ required: true, maxlength: 100 })
