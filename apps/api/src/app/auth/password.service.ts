@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class PasswordService {
   get bcryptSaltRounds(): string | number {
-    const saltOrRounds = environment.bcryptSaltOrRound;
+    const saltOrRounds = environment.BCRYPT_SALT_OR_ROUND;
 
     return Number.isInteger(Number(saltOrRounds))
       ? Number(saltOrRounds)

@@ -79,15 +79,15 @@ export class AuthService {
   private generateRefreshToken(userId: string): string {
     const payload: Partial<JwtDto> = { uid: userId };
     return this.jwtService.sign(payload, {
-      secret: environment.jwtRefreshSecret,
-      expiresIn: environment.refreshIn,
+      secret: environment.JWT_REFRESH_SECRET,
+      expiresIn: environment.JWT_REFRESH_IN,
     });
   }
 
   refreshToken(token: string) {
     try {
       const { userId } = this.jwtService.verify(token, {
-        secret: environment.jwtRefreshSecret,
+        secret: environment.JWT_REFRESH_SECRET,
       });
 
       return this.generateTokens(userId);

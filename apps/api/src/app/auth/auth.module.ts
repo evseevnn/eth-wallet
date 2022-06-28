@@ -13,9 +13,9 @@ import { UsersModule } from '../users/users.module';
   imports: [
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-      secret: environment.jwtAccessSecret,
+      secret: environment.JWT_ACCESS_SECRET,
       signOptions: {
-        expiresIn: environment.expiresIn,
+        expiresIn: environment.JWT_EXPIRES_IN,
       },
     }),
     UsersModule,
