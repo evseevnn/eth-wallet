@@ -1,7 +1,8 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Transform } from 'class-transformer';
+import { Exclude, Transform, Type } from 'class-transformer';
 import { Document, ObjectId } from 'mongoose';
+import { Wallet, WalletSchema } from '../../wallet/entities/wallet.entity';
 
 export type UserDocument = User & Document;
 
@@ -21,7 +22,13 @@ export class User {
   email: string;
 
   @Prop({ maxlength: 128 })
+  @Exclude()
   password: string;
+
+  @Prop({ type: WalletSchema, required: true })
+  @Field(() => Wallet)
+  @Type(() => Wallet)
+  wallet: Wallet;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

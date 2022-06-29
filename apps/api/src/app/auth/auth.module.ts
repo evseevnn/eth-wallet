@@ -8,6 +8,7 @@ import { AuthResolver } from './auth.resolver';
 import { JwtStrategy } from './jwt.strategy';
 import { environment } from '../../environments/environment';
 import { UsersModule } from '../users/users.module';
+import { WalletModule } from '../wallet/wallet.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { UsersModule } from '../users/users.module';
       },
     }),
     UsersModule,
+    WalletModule,
   ],
   providers: [
     AuthService,

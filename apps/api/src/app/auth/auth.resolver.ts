@@ -20,8 +20,13 @@ export class AuthResolver {
   @Mutation(() => Auth)
   async signup(@Args('input') input: SignupInput) {
     input.email = input.email.toLowerCase();
-    const { accessToken, refreshToken } = await this.auth.createUser(input);
+    const {
+      tokens: { accessToken, refreshToken },
+      mnemonic,
+    } = await this.auth.createUser(input);
+
     return {
+      mnemonic,
       accessToken,
       refreshToken,
     };

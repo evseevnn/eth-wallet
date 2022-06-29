@@ -11,26 +11,38 @@ import { UsersService } from '../users/users.service';
 import { User } from '../users/entities/user.entity';
 import { environment } from '../../environments/environment';
 import { JwtDto } from './dto/jwt.dto';
+import { WalletService } from '../wallet/wallet.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly jwtService: JwtService,
     private readonly usersService: UsersService,
+    private readonly walletService: WalletService,
     private readonly passwordService: PasswordService
   ) {}
 
-  async createUser(payload: SignupInput): Promise<Token> {
+  async createUser(
+    payload: SignupInput
+  ): Promise<{ tokens: Token; mnemonic: string }> {
     const hashedPassword = await this.passwordService.hashPassword(
       payload.password
     );
 
-    const user = await this.usersService.create({
-      ...payload,
-      password: hashedPassword,
-    });
+    const { wallet, mnemonic } = await this.walletService.create(
+      payload.password
+    );
 
-    return this.generateTokens(user._id.toString());
+    const user = await this.usersService.create(
+      {
+        ...payload,
+        password: hashedPassword,
+      },
+      wallet
+    );
+
+    const tokens = this.generateTokens(user._id.toString());
+    return { tokens, mnemonic };
   }
 
   async login(email: string, password: string): Promise<Token> {

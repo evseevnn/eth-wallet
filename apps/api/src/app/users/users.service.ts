@@ -3,6 +3,7 @@ import { User } from './entities/user.entity';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model } from 'mongoose';
 import { CreateUserInput } from './dto/create-user.input';
+import { Wallet } from '../wallet/entities/wallet.entity';
 
 @Injectable()
 export class UsersService {
@@ -11,8 +12,9 @@ export class UsersService {
     private readonly userModel: Model<User>
   ) {}
 
-  async create(createUserInput: CreateUserInput) {
+  async create(createUserInput: CreateUserInput, wallet: Wallet) {
     const user = new this.userModel(createUserInput);
+    user.wallet = wallet;
     return user.save();
   }
 
