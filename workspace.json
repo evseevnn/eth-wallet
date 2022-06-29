@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "enctyption": "libs/enctyption",
     "frontend": "apps/frontend",
     "frontend-e2e": "apps/frontend-e2e"
   }
