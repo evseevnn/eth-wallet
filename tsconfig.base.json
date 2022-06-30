@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@fonbnk/database": ["libs/database/src/index.ts"],
       "@fonbnk/enctyption": ["libs/enctyption/src/index.ts"],
       "@fonbnk/types": ["libs/enctyption/src/@types/index.ts"]
     }

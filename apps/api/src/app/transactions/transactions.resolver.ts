@@ -1,9 +1,8 @@
+import { Transaction, User } from '@fonbnk/database';
 import { UseGuards } from '@nestjs/common';
 import { Query, Resolver } from '@nestjs/graphql';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { GqlAuthGuard } from '../auth/gql-auth.guard';
-import { User } from '../users/entities/user.entity';
-import { Transaction } from './entities/transaction.entity';
 import { TransactionsService } from './transactions.service';
 
 @Resolver()

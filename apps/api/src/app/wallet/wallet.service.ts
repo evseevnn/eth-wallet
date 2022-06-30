@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Wallet } from './entities/wallet.entity';
 import { ethers, Wallet as EtherWallet } from 'ethers';
 import { EncryptionService } from 'libs/enctyption/src/lib/encryption.service';
 import { EncryptedData } from '@fonbnk/types';
+import { Wallet } from '@fonbnk/database';
 
 @Injectable()
 export class WalletService {

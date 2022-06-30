@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { User } from './entities/user.entity';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model } from 'mongoose';
 import { CreateUserInput } from './dto/create-user.input';
-import { Wallet } from '../wallet/entities/wallet.entity';
+import { User, Wallet } from '@fonbnk/database';
 
 @Injectable()
 export class UsersService {

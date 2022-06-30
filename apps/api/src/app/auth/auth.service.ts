@@ -8,10 +8,10 @@ import { PasswordService } from './password.service';
 import { SignupInput } from './dto/signup.input';
 import { Token } from './models/token.model';
 import { UsersService } from '../users/users.service';
-import { User } from '../users/entities/user.entity';
 import { environment } from '../../environments/environment';
 import { JwtDto } from './dto/jwt.dto';
 import { WalletService } from '../wallet/wallet.service';
+import { User } from '@fonbnk/database';
 
 @Injectable()
 export class AuthService {

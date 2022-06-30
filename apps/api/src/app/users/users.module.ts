@@ -1,7 +1,7 @@
+import { User, UserSchema } from '@fonbnk/database';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { WalletModule } from '../wallet/wallet.module';
-import { User, UserSchema } from './entities/user.entity';
 import { UsersResolver } from './users.resolver';
 import { UsersService } from './users.service';
 

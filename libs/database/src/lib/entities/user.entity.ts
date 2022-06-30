@@ -2,7 +2,7 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Exclude, Transform, Type } from 'class-transformer';
 import { Document, ObjectId } from 'mongoose';
-import { Wallet, WalletSchema } from '../../wallet/entities/wallet.entity';
+import { Wallet, WalletSchema } from './wallet.entity';
 
 export type UserDocument = User & Document;
 

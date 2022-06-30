@@ -1,8 +1,8 @@
+import { Wallet, WalletSchema } from '@fonbnk/database';
 import { EnctyptionModule } from '@fonbnk/enctyption';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { environment } from '../../environments/environment';
-import { Wallet, WalletSchema } from './entities/wallet.entity';
 import { WalletService } from './wallet.service';
 
 @Module({

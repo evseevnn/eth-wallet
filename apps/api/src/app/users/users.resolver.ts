@@ -1,8 +1,8 @@
+import { User } from '@fonbnk/database';
 import { UseGuards } from '@nestjs/common';
 import { Resolver, Query } from '@nestjs/graphql';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { GqlAuthGuard } from '../auth/gql-auth.guard';
-import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 
 @Resolver()

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Transaction } from './entities/transaction.entity';
+import { Transaction } from '@fonbnk/database';
 
 @Injectable()
 export class TransactionsService {

@@ -4,7 +4,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { JwtDto } from './dto/jwt.dto';
 import { environment } from '../../environments/environment';
-import { User } from '../users/entities/user.entity';
+import { User } from '@fonbnk/database';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
