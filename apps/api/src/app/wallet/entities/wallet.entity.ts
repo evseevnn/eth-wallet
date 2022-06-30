@@ -1,15 +1,14 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
 import { Document, ObjectId } from 'mongoose';
-import graphqlTypeJson from 'graphql-type-json';
 import { BigNumber } from 'ethers';
+import { Exclude } from 'class-transformer';
 
 export type UserDocument = Wallet & Document;
 
 @Schema()
 @ObjectType()
 export class Wallet {
-  @Field(() => String)
   _id: ObjectId;
 
   @Prop({ required: true })
@@ -20,13 +19,13 @@ export class Wallet {
   @Field(() => String)
   balance: String;
 
+  @Exclude()
   @Prop(
     raw({
       iv: { type: String },
       content: { type: String },
     })
   )
-  @Field(() => graphqlTypeJson, { nullable: false })
   encrypted_pk: Record<string, any>;
 }
 
