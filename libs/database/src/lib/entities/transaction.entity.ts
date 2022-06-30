@@ -1,9 +1,20 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, ObjectId } from 'mongoose';
 import { BigNumber } from 'ethers';
 
 export type TransactionDocument = Transaction & Document;
+
+export enum TransactionStatus {
+  NEW = 'NEW',
+  PENDING = 'PENDING',
+  COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
+}
+registerEnumType(TransactionStatus, {
+  name: 'TransactionStatus',
+  description: 'Transaction status',
+});
 
 @Schema()
 @ObjectType()
@@ -18,6 +29,13 @@ export class Transaction {
   @Prop({ required: true })
   @Field(() => String)
   to: String;
+
+  @Prop({
+    enum: Object.values(TransactionStatus),
+    default: TransactionStatus.NEW,
+  })
+  @Field(() => TransactionStatus)
+  status: TransactionStatus;
 
   @Prop()
   @Field(() => String)
