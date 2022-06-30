@@ -28,6 +28,7 @@ type Mutation {
 }
 
 type Query {
+  transactions: [Transaction!]!
   user: User!
 }
 
@@ -43,6 +44,13 @@ type Token {
 
   """JWT refresh token"""
   refreshToken: JWT!
+}
+
+type Transaction {
+  _id: String!
+  amount: String!
+  from: String!
+  to: String!
 }
 
 type User {
