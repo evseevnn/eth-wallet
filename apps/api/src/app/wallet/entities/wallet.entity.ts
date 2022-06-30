@@ -4,7 +4,7 @@ import { Document, ObjectId } from 'mongoose';
 import { BigNumber } from 'ethers';
 import { Exclude } from 'class-transformer';
 
-export type UserDocument = Wallet & Document;
+export type WalletDocument = Wallet & Document;
 
 @Schema()
 @ObjectType()
