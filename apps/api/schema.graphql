@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Auth {
+  """JWT access token"""
+  accessToken: JWT!
+
+  """JWT refresh token"""
+  refreshToken: JWT!
+  user: User!
+}
+
+"""
+A field whose value is a JSON Web Token (JWT): https://jwt.io/introduction.
+"""
+scalar JWT
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  login(input: LoginInput!): Auth!
+  refreshToken(token: JWT!): Token!
+  signup(input: SignupInput!): Auth!
+}
+
+type Query {
+  user: User!
+}
+
+input SignupInput {
+  email: String!
+  fullname: String!
+  password: String!
+}
+
+type Token {
+  """JWT access token"""
+  accessToken: JWT!
+
+  """JWT refresh token"""
+  refreshToken: JWT!
+}
+
+type User {
+  _id: String!
+  email: String!
+  fullname: String!
+  wallet: Wallet!
+}
+
+type Wallet {
+  address: String!
+  balance: String!
+}

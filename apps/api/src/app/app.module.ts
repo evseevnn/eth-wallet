@@ -13,7 +13,7 @@ import { WalletModule } from './wallet/wallet.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       playground: !environment.production,
-      autoSchemaFile: true,
+      autoSchemaFile: 'apps/api/schema.graphql',
       sortSchema: true,
     }),
     AuthModule,
