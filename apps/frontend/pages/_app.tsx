@@ -1,18 +1,30 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './styles.css';
+import { MantineProvider } from '@mantine/core';
+import { lightTheme } from '../themes';
+import { ApolloProvider } from '@apollo/client';
+import { apolloDataService } from '../services';
+import { ContextProvider } from '../context/state';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+export default function App(props: AppProps) {
+  const { Component, pageProps } = props;
+
   return (
     <>
       <Head>
-        <title>Welcome to frontend!</title>
+        <title>Page title</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
       </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
+      <ApolloProvider client={apolloDataService}>
+        <ContextProvider>
+          <MantineProvider withGlobalStyles withNormalizeCSS theme={lightTheme}>
+            <Component {...pageProps} />
+          </MantineProvider>
+        </ContextProvider>
+      </ApolloProvider>
     </>
   );
 }
-
-export default CustomApp;

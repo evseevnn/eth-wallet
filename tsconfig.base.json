@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fonbnk/types": ["libs/enctyption/src/@types/index.ts"],
-      "@fonbnk/enctyption": ["libs/enctyption/src/index.ts"]
+      "@fonbnk/enctyption": ["libs/enctyption/src/index.ts"],
+      "@fonbnk/types": ["libs/enctyption/src/@types/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

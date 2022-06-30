@@ -1,0 +1,11 @@
+query getCurrentUser {
+  user {
+    _id
+    fullname
+    email
+    wallet {
+      address
+      balance
+    }
+  }
+}

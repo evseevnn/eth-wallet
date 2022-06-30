@@ -10,6 +10,9 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  env: {
+    GRAPHQL_URL: process.env.NX_GRAPHQL_URL,
+  },
 };
 
 module.exports = withNx(nextConfig);
