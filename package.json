@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "private": true,
   "dependencies": {
@@ -27,7 +28,6 @@
     "graphql": "^16.5.0",
     "graphql-scalars": "^1.17.0",
     "graphql-tools": "^8.3.0",
-    "graphql-type-json": "^0.3.2",
     "mongoose": "^6.4.1",
     "next": "12.1.6",
     "passport-jwt": "^4.0.0",
