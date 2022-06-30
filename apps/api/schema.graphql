@@ -50,7 +50,16 @@ type Transaction {
   _id: String!
   amount: String!
   from: String!
+  status: TransactionStatus!
   to: String!
+}
+
+"""Transaction status"""
+enum TransactionStatus {
+  COMPLETED
+  FAILED
+  NEW
+  PENDING
 }
 
 type User {
