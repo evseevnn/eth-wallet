@@ -3,10 +3,10 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "listener": "apps/listener",
     "database": "libs/database",
     "enctyption": "libs/enctyption",
     "frontend": "apps/frontend",
-    "frontend-e2e": "apps/frontend-e2e"
+    "frontend-e2e": "apps/frontend-e2e",
+    "listener": "apps/listener"
   }
 }
