@@ -27,7 +27,6 @@ export default function SignUpPage() {
     initialValues: {
       email: '',
       fullname: '',
-      countryCode: '',
       password: '',
       terms: true,
     },
@@ -64,17 +63,6 @@ export default function SignUpPage() {
 
       <form onSubmit={form.onSubmit(() => submitHandler())}>
         <Group direction="column" grow>
-          {type === 'register' && (
-            <TextInput
-              label="Name"
-              placeholder="Your name"
-              value={form.values.fullname}
-              onChange={(event) =>
-                form.setFieldValue('fullname', event.currentTarget.value)
-              }
-            />
-          )}
-
           <TextInput
             required
             label="Email"
