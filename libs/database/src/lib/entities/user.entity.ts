@@ -1,8 +1,8 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Exclude, Transform, Type } from 'class-transformer';
-import { Document, ObjectId } from 'mongoose';
-import { Wallet, WalletSchema } from './wallet.entity';
+import mongoose, { Document, ObjectId } from 'mongoose';
+import { Wallet } from './wallet.entity';
 
 export type UserDocument = User & Document;
 
@@ -25,7 +25,7 @@ export class User {
   @Exclude()
   password: string;
 
-  @Prop({ type: WalletSchema, required: true })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Wallet' })
   @Field(() => Wallet)
   @Type(() => Wallet)
   wallet: Wallet;

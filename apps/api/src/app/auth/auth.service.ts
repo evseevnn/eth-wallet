@@ -68,12 +68,14 @@ export class AuthService {
     return this.usersService.findById(userId);
   }
 
-  getUserFromToken(token: string): Promise<User> {
+  async getUserFromToken(token: string): Promise<User> {
     const tokenBody = this.jwtService.decode(token);
     if (typeof tokenBody !== 'object') {
       return null;
     }
-    return this.usersService.findById(tokenBody.uid);
+
+    const user = await this.usersService.findById(tokenBody.uid);
+    return user;
   }
 
   generateTokens(userId: string): Token {

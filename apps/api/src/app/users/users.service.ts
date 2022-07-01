@@ -22,7 +22,13 @@ export class UsersService {
   }
 
   async findById(id: string) {
-    const user = await this.userModel.findById(id).exec();
+    const user = await this.userModel
+      .findById(id)
+      .populate({
+        path: 'wallet',
+        select: ['address', 'balance'],
+      })
+      .exec();
     return user;
   }
 

@@ -49,7 +49,9 @@ type Token {
 type Transaction {
   _id: String!
   amount: String!
+  block: Float!
   from: String!
+  hash: String!
   status: TransactionStatus!
   to: String!
 }
