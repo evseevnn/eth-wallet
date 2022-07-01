@@ -1,0 +1,11 @@
+mutation SendTransaction(
+  $address: String!
+  $amount: String!
+  $password: String!
+) {
+  sendTransaction(
+    input: { address: $address, amount: $amount, password: $password }
+  ) {
+    hash
+  }
+}
