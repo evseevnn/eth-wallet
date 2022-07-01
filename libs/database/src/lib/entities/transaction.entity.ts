@@ -6,9 +6,8 @@ import { BigNumber } from 'ethers';
 export type TransactionDocument = Transaction & Document;
 
 export enum TransactionStatus {
-  NEW = 'NEW',
   PENDING = 'PENDING',
-  COMPLETED = 'COMPLETED',
+  COMPLETED = 'COMPLETE',
   FAILED = 'FAILED',
 }
 registerEnumType(TransactionStatus, {
@@ -22,7 +21,7 @@ export class Transaction {
   @Field(() => String)
   _id: ObjectId;
 
-  @Prop({ required: true })
+  @Prop()
   @Field(() => Number)
   block: number;
 
@@ -40,7 +39,7 @@ export class Transaction {
 
   @Prop({
     enum: Object.values(TransactionStatus),
-    default: TransactionStatus.NEW,
+    required: true,
   })
   @Field(() => TransactionStatus)
   status: TransactionStatus;
