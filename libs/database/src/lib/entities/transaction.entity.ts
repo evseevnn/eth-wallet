@@ -23,6 +23,14 @@ export class Transaction {
   _id: ObjectId;
 
   @Prop({ required: true })
+  @Field(() => Number)
+  block: number;
+
+  @Prop({ required: true, unique: true })
+  @Field(() => String)
+  hash: string;
+
+  @Prop({ required: true })
   @Field(() => String)
   from: string;
 
