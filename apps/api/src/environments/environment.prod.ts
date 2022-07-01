@@ -7,4 +7,6 @@ export const environment = {
   JWT_REFRESH_IN: process.env.JWT_REFRESH_IN || '7d',
   BCRYPT_SALT_OR_ROUND: parseInt(process.env.BCRYPT_SALT_OR_ROUND, 10) || 10,
   PK_ENCRYPTOR_SECRET: process.env.PK_ENCRYPTOR_SECRET,
+  ETHEREUM_NETWORK: process.env.ETHEREUM_NETWORK,
+  INFURA_KEY: process.env.INFURA_KEY,
 };
