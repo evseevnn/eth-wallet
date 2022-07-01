@@ -10,6 +10,8 @@ import {
   Title,
 } from '@mantine/core';
 import { useClipboard } from '@mantine/hooks';
+import { BigNumber } from 'ethers';
+import { formatEther } from 'ethers/lib/utils';
 import { Check, Copy, Icon } from 'tabler-icons-react';
 
 /* eslint-disable-next-line */
@@ -37,10 +39,12 @@ export function AssetCard({ name, address, balance, icon }: AssetCardProps) {
     </ActionIcon>
   );
 
+  const balanceInEth = formatEther(BigNumber.from(balance));
+
   return (
     <Paper withBorder p="md" radius="xs" key="ethereum">
       <Title order={3}>
-        {balance} {name}
+        {balanceInEth} {name}
       </Title>
 
       <Badge
