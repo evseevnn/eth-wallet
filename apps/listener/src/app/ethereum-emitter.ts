@@ -11,7 +11,7 @@ export class EthereumEmiter extends EventEmitter {
 
   constructor(
     @Inject('ETHEREUM_NETWORK_PROVIDER')
-    private provider: providers.BaseProvider
+    private readonly provider: providers.BaseProvider
   ) {
     super();
     // Tracing new blocks
@@ -58,9 +58,9 @@ export class EthereumEmiter extends EventEmitter {
     transactions.map((transaction) => {
       this.emit('completed', transaction);
       // Update balances
-      [(transaction.from, transaction.to)]
+      [transaction.from, transaction.to]
         .filter((address) => this.tracingAddresses.includes(address))
-        .map((address) => this.updateBalance(address));
+        .map(async (address) => await this.updateBalance(address));
     });
   }
 
